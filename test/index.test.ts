@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import express, { Request, Response } from 'express';
-import { booleanize, BooleanizeOptions } from '../src';
+import { booleanize, BooleanizeOptions } from '..';
 import request from 'supertest';
 let app;
 beforeAll(() => {

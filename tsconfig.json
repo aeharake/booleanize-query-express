@@ -6,7 +6,7 @@
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "./dist",
-        "baseUrl": "src",
+        "baseUrl": ".",
     },
     "lib": [
         "ES2022"
