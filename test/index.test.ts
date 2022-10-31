@@ -44,19 +44,17 @@ describe(`Testing for ${booleanQueryParams.join(", ")} but this time middleware 
             startingWith: ["is"]
         })
     })
-    describe(`Testing different input values for isNew`, () => {
-        Object.keys(booleanQueryIOMap).forEach((key: any) => {
-            test(`passing isNew=${key}`, async () => {
-                const response = (await request(app).get(`/test?isNew=${key}`)).body;
-                expect(response["isNew"]).toBe(booleanQueryIOMap[key]);
-            })
-        })
-    })
-    describe(`Testing different input values for hasSomeVal`, () => {
-        Object.keys(stringQueryIOMap).forEach((key: any) => {
-            test(`passing hasSomeVal=${key}`, async () => {
-                const response = (await request(app).get(`/test?hasSomeVal=${key}`)).body;
-                expect(response["hasSomeVal"]).toBe(stringQueryIOMap[key]);
+    const mapQueryResult = {
+        isNew: booleanQueryIOMap,
+        hasSomeVal: stringQueryIOMap
+    }
+    Object.keys(mapQueryResult).forEach((key: any) => {
+        describe(`Testing different input values for ${key}`, () => {
+            Object.keys(mapQueryResult[key]).forEach((k: any) => {
+                test(`passing ${key}=${k}`, async () => {
+                    const response = (await request(app).get(`/test?${key}=${k}`)).body;
+                    expect(response[key]).toBe(mapQueryResult[key][k]);
+                })
             })
         })
     })
