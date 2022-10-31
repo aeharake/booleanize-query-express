@@ -1,7 +1,9 @@
 export interface BooleanizeOptions {
     startingWith: string[];
 }
-export const booleanize = (opts: BooleanizeOptions = { startingWith: ["is", "has"] }) => {
+const DEFAULT_PREFIXES = ["is", "has", "are", "can", "should"];
+
+export const booleanize = (opts: BooleanizeOptions = { startingWith: DEFAULT_PREFIXES }) => {
     return (req: any, res: any, next: any) => {
         const keys = Object.keys(req.query);
         keys.forEach(key => {

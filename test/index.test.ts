@@ -6,7 +6,7 @@ let app;
 beforeAll(() => {
     initExpressForAllBooleanQueries();
 });
-const booleanQueryParams = ["isNew", "hasSomeValue"];
+const booleanQueryParams = ["isNew", "hasSomeValue", "shouldPlay", "canDance", "areNice"];
 const booleanQueryIOMap = {
     1: true,
     0: false,
@@ -41,12 +41,15 @@ describe(`Testing for ${booleanQueryParams.join(", ")}`, () => {
 describe(`Testing for ${booleanQueryParams.join(", ")} but this time middleware accepts only 'is' prefix`, () => {
     beforeAll(() => {
         initExpressForAllBooleanQueries({
-            startingWith: ["is"]
+            startingWith: ["is", "are"]
         })
     })
     const mapQueryResult = {
         isNew: booleanQueryIOMap,
-        hasSomeVal: stringQueryIOMap
+        areNice: booleanQueryIOMap,
+        hasSomeValue: stringQueryIOMap,
+        canDance: stringQueryIOMap,
+        shouldPlay: stringQueryIOMap,
     }
     Object.keys(mapQueryResult).forEach((key: any) => {
         describe(`Testing different input values for ${key}`, () => {
