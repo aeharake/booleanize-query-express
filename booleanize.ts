@@ -1,10 +1,5 @@
-interface BooleanizeOptions {
+export interface BooleanizeOptions {
     startingWith: string[];
-}
-class BooleanizeException extends Error {
-    constructor(message?: string) {
-        super(message);
-    }
 }
 export const booleanize = (opts: BooleanizeOptions = { startingWith: ["is", "has"] }) => {
     return (req: any, res: any, next: any) => {
@@ -22,7 +17,7 @@ export const booleanize = (opts: BooleanizeOptions = { startingWith: ["is", "has
 
 const checkVal = (val: unknown): unknown => {
     const isTrueValid = val === 'true' || val == 1;
-    const isFalseValid = val === 'false' || val == 0;
+    const isFalseValid = val === 'false' || val == 0 || val == -1;
     const isValid = isTrueValid || isFalseValid;
     if (!isValid) {
         return val;
