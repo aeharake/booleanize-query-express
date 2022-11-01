@@ -33,5 +33,5 @@ jobs:
       - run: npm run build
       - uses: JS-DevTools/npm-publish@v1
         with:
-          package: ./dist
+          package: ./dist/package.json
           token: ${{ secrets.NPM_TOKEN }}
