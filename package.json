@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "build": "npx tsc && npx copyfiles -f package.json dist"
+    "build": "npx tsc && npm run copyPackage && npm run copyReadme",
+    "copyPackage": "npx copyfiles -f package.json dist",
+    "copyReadme": "npx copyfiles -f README.md dist"
   },
   "keywords": [
     "boolean",
