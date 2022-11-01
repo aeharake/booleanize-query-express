@@ -12,7 +12,7 @@
     "params",
     "booleanize"
   ],
-  "author": "Ahmad El Harake <aeharake@gmail.com>",
+  "author": "Ahmad El Harake",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.19.6",
