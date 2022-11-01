@@ -1,10 +1,10 @@
-# booleanize-query-express
+# express-query-booleanizer
 
 ### Express JS middleware to sanitize boolean query params
 
 Who among us wasn't frustrated by the fact that everytime the request has a query parameter in the url like `isLast=1` or `isLast=true`, you should write extra code by yourself to convert that string **"1"** or **"true"** to a boolean `true` value.
 
-Here comes `booleanize-query-express` to the rescue!
+Here comes `express-query-booleanizer` to the rescue!
 
 ### Prerequisites
 
@@ -13,7 +13,7 @@ Here comes `booleanize-query-express` to the rescue!
 
 ### Installing
 
-    npm install booleanize-query-express
+    npm install express-query-booleanizer
 
 Once the package is installed in node_modules, you can use it simply
 
@@ -21,7 +21,7 @@ Once the package is installed in node_modules, you can use it simply
 
 ```
 import express from 'express';
-import {booleanize} from 'booleanize-query-express';
+import {booleanize} from 'express-query-booleanizer';
 
 const app = express();
 ```
@@ -58,7 +58,7 @@ app.get('/test?isValid=true&isNew=1&hasJob=0&somethingElse=false',(req: Request,
 ### Full example
 ```
 import express from 'express';
-import {booleanize} from 'booleanize-query-express';
+import {booleanize} from 'express-query-booleanizer';
 
 const app = express();
 app.use(booleanize()); 
