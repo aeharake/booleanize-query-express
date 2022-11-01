@@ -1,6 +1,6 @@
 {
   "name": "express-query-booleanizer",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Express JS middleware to convert query params to boolean",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,11 @@
     "query",
     "params",
     "booleanize"
+  ],
+  "files": [
+    "README.md",
+    "index.js",
+    "index.d.ts"
   ],
   "author": "Ahmad El Harake",
   "license": "MIT",
