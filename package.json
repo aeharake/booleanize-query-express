@@ -2,9 +2,10 @@
   "name": "booleanize-query-express",
   "version": "0.0.10",
   "description": "Express JS middleware to convert query params to boolean",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles",
+    "build": "npx tsc && npx copyfiles -f package.json dist"
   },
   "keywords": [
     "boolean",
