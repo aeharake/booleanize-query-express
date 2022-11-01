@@ -1,3 +1,4 @@
+import { isCamel } from "../utilz";
 import { describe, expect, test } from '@jest/globals';
 import express, { Request, Response } from 'express';
 import { booleanize, BooleanizeOptions } from '../index';
@@ -26,6 +27,20 @@ const stringQueryIOMap = {
   something: 'something',
   _: '_',
 };
+const camelMapIOExp = {
+  isNew: true,
+  IsNew: false,
+  isnew: false,
+  ISNEW: false
+}
+describe('Check camelcase package',() => {
+  Object.keys(camelMapIOExp).forEach(key => {
+    test(`should return ${camelMapIOExp[key]} if passed ${key}`, ()=>{
+      expect(isCamel(key)).toBe(camelMapIOExp[key]);
+    })
+  });
+  
+});
 describe(`Testing for ${booleanQueryParams.join(', ')}`, () => {
   booleanQueryParams.forEach((booleanQuery: any) => {
     describe(`Testing different input values for ${booleanQuery}`, () => {

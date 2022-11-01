@@ -1,3 +1,5 @@
+import { isCamel } from "./utilz";
+
 export interface BooleanizeOptions {
     startingWith: string[];
 }
@@ -8,7 +10,7 @@ export const booleanize = (opts: BooleanizeOptions = { startingWith: DEFAULT_PRE
         const keys = Object.keys(req.query);
         keys.forEach(key => {
             const found = opts.startingWith.find(prefix => key.startsWith(prefix));
-            if (found && found.charAt(found.length).toUpperCase() === found.charAt(found.length)) {
+            if (found && isCamel(key)) {
                 const val = req.query[key];
                 req.query[key] = checkVal(val);
             }
