@@ -1,5 +1,5 @@
 {
-  "name": "booleanize-query-express",
+  "name": "express-query-booleanizer",
   "version": "0.0.10",
   "description": "Express JS middleware to convert query params to boolean",
   "main": "index.js",
